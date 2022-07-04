@@ -1,11 +1,12 @@
 {% extends "base.html" %} {% load static %} {% block content %}
-<h1>Django Music Collection</h1>
+<h1>🎵 Django Music Collection 🎵</h1>
 <a href="{% url 'add_album' %}">Add New</a>
 
 {% for album in albums %}
 <div>
   <h2>{{ album.title }}</h2>
   <p>{{ album.artist }}</p>
+  <p>{{ album.created_date }}</p>
   <div>
     <a href="{% url 'detail_album' album.pk %}">Details</a>
   </div>
