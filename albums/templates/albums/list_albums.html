@@ -1,4 +1,7 @@
 {% extends "base.html" %} {% load static %} {% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic" />
+<link rel="stylesheet" href=" {% static 'styles.css' %}" />
+<script src="main.js"></script>
 <h1>🎵 Django Music Collection 🎵</h1>
 <a href="{% url 'add_album' %}">Add New</a>
 
@@ -8,9 +11,20 @@
   <p>{{ album.artist }}</p>
   <p>{{ album.created_date }}</p>
   <div>
+    <div style="width: 200px">
+      <!-- this div just for demo display -->
+      <label class="dropimage">
+        <input title="Drop image or click me" type="file" />
+      </label>
+    </div>
+
     <a href="{% url 'detail_album' album.pk %}">Details</a>
   </div>
   <a href="{% url 'edit_album' album.pk %}">Edit</a>
   <a href="{% url 'delete_albums' album.pk %}">Delete</a>
 </div>
 {% endfor %} {% endblock %}
+<br />
+{% if album.image %} <img src="{{ album.image.url }}" /> {% endif %}
+
+<td background="{{ STATIC_URL }}images/g.JPG"></td>

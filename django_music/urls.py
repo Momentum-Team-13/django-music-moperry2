@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.conf import settings
 from albums import views as albums_views
 from django.urls import include, path
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +28,7 @@ urlpatterns = [
     path('albums/<int:pk>', albums_views.detail_album, name='detail_album'),
     path('albums/<int:pk>/delete', albums_views.delete_albums, name='delete_albums'),
     path('albums/<int:pk>/edit', albums_views.edit_album, name='edit_album'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # if settings.DEBUG:
+
+urlpatterns += staticfiles_urlpatterns()
