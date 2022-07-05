@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<h1>🎵 Details 🎵</h1>
+<a href="{% url 'list_albums' %}">Home Page</a>
+
+<h2>Artist: {{ album.artist }}</h2>
+<h2>Album: {{ album.title }}</h2>
+<h3>Created Date: {{ album.created_date }}</h3>
+<h3>Track List:</h3>
+<h4>{{ album.songs }}</h4>
+<a href="{% url 'edit_album' album.pk %}">Edit Album</a>
+
+{% endblock %}
