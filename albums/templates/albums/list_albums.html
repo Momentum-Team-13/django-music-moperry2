@@ -1,22 +1,26 @@
-{% extends "base.html" %} {% load static %} {% block content %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic" />
-<link rel="stylesheet" href=" {% static 'styles.css' %}" />
-<script src="main.js"></script>
-<h1>🎵 Django Music Collection 🎵</h1>
+{% extends "base.html" %} {% load static %}
+{% block content %}
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic" /> -->
+<body>
+  <script src=" {% static '/js/main.js' %}"></script>
+  <h1>🎵 Django Music Collection 🎵</h1>
 <a href="{% url 'add_album' %}">Add New</a>
 
 {% for album in albums %}
 <div>
   <h2>{{ album.title }}</h2>
   <p>{{ album.artist }}</p>
+  {% if album.image %}
+  <img src="{{ album.image.url }}" alt="{{ album.image }}">
+  {% endif %}
   <p>{{ album.created_date }}</p>
   <div>
-    <div style="width: 200px">
+    <!-- <div style="width: 200px"> -->
       <!-- this div just for demo display -->
-      <label class="dropimage">
+      <!-- <label class="dropimage">
         <input title="Drop image or click me" type="file" />
       </label>
-    </div>
+    </div> -->
 
     <a href="{% url 'detail_album' album.pk %}">Details</a>
   </div>
@@ -24,7 +28,8 @@
   <a href="{% url 'delete_albums' album.pk %}">Delete</a>
 </div>
 {% endfor %} {% endblock %}
-<br />
-{% if album.image %} <img src="{{ album.image.url }}" /> {% endif %}
+</body>
+<!-- <br />
+{% if album.image %} <src="{% static "g.jpg" %}" /> {% endif %}
 
 <td background="{{ STATIC_URL }}images/g.JPG"></td>

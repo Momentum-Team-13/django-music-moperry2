@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+  color: rgb(59, 76, 109);
+  font-size: 55px;
+  /* padding: 20px; */
+}
+
+body {
+  background-image: -moz-linear-gradient(), url(g.jpg);
+}
