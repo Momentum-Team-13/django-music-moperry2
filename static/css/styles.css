@@ -11,10 +11,18 @@ body {
   background-image: url(rp.png);
 }
 
-.album {
+.album,
+.add {
   text-align: center;
   font-size: 30px;
   border-radius: 20px;
   padding: 20px;
   text-shadow: 0 0 3px #ff0000;
+}
+
+img {
+  border: 5px solid white;
+  width: 500px;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
