@@ -7,13 +7,13 @@
 <a href="{% url 'add_album' %}">Add New</a>
 
 {% for album in albums %}
-<div>
+<div class = "album">
   <h2>{{ album.title }}</h2>
   <p>{{ album.artist }}</p>
   {% if album.image %}
   <img src="{{ album.image.url }}" alt="{{ album.image }}">
   {% endif %}
-  <p>{{ album.created_date }}</p>
+  <p> Created on: {{ album.created_date }}</p>
   <div>
     <!-- <div style="width: 200px"> -->
       <!-- this div just for demo display -->
